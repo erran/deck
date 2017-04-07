@@ -22,6 +22,20 @@
                                  ng-model="$ctrl.command.cooldown"/></div>&nbsp;seconds
   </div>
   <div class="form-group">
+    <div class="col-md-5 sm-label-right"><b>Group Metrics</b></div>
+    <div class="col-md-6">
+
+      <ui-select multiple ng-model="$ctrl.command.groupMetrics" class="form-control input-sm">
+        <ui-select-match>{{$item}}</ui-select-match>
+        <ui-select-choices repeat="groupMetric in $ctrl.command.backingData.groupMetrics | filter: $select.search | orderBy: 'toString()'">
+          <span ng-bind-html="groupMetric | highlight: $select.search"></span>
+        </ui-select-choices>
+      </ui-select>
+
+    </div>
+  </div>
+
+  <div class="form-group">
     <div class="col-md-5 sm-label-right"><b>Health Check Type</b></div>
     <div class="col-md-6">
 
